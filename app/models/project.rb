@@ -8,7 +8,7 @@ class Project < ActiveRecord::Base
   validate :project_start_date_in_future
 
   def project_start_date_in_future
-    t = Time.now
+    t = Date.today
     #user_date = t.strftime
     if start_date <= t
       errors.add(:start_date, "Project start date must be in the future")
