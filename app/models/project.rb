@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   has_many :users, through: :pledges # backers
   belongs_to :user # project owner
 
+
   validates :user,:title, :description, :goal, :start_date, :end_date, presence: true
   validate :project_start_date_in_future
   validate :project_start_date_must_be_greater_than_end_date
@@ -29,6 +30,7 @@ class Project < ActiveRecord::Base
       errors.add(:goal, "Project goal must be greater than $0")
     end
   end
+
 
 
 

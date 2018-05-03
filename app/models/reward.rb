@@ -12,4 +12,5 @@ validate :reward_dollar_amount_must_be_a_positive_number
 
   end
 
+
 end
