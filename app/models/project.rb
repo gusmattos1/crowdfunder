@@ -12,20 +12,21 @@ class Project < ActiveRecord::Base
 
 
   def project_start_date_in_future
-    t = Date.today
-    #user_date = t.strftime
-    if start_date <= t
+    return if start_date == nil
+    if start_date <= Date.today
       errors.add(:start_date, "Project start date must be in the future")
     end
   end
 
   def project_start_date_must_be_greater_than_end_date
+    return if start_date == nil
     if start_date >= end_date
       errors.add(:start_date, "Project start date must be greater than end date")
     end
   end
 
   def project_goal_must_be_a_positive_number
+    return if goal == nil
     if goal < 0
       errors.add(:goal, "Project goal must be greater than $0")
     end
