@@ -3,9 +3,9 @@ require 'test_helper'
 class RewardTest < ActiveSupport::TestCase
 
   test 'A reward can be created' do
-    project = new_project
+    project = build(:project)
     project.save
-    reward = Reward.create(
+    reward = create(:reward,
       dollar_amount: 99.00,
       description: 'A heartfelt thanks!',
       project: project
@@ -15,9 +15,9 @@ class RewardTest < ActiveSupport::TestCase
   end
 
   test 'A reward cannot be created without a dollar amount' do
-    project = new_project
+    project = build(:project)
     project.save
-    reward = Reward.create(
+    reward = build(:reward,
       description: 'A heartfelt thanks!',
       project: project
     )
@@ -26,9 +26,9 @@ class RewardTest < ActiveSupport::TestCase
   end
 
   test 'A reward cannot be created without a description' do
-    project = new_project
+    project = build(:project)
     project.save
-    reward = Reward.create(
+    reward = build(:reward,
       dollar_amount: 99.00,
       project: project
     )
