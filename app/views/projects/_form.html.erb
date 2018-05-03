@@ -35,9 +35,13 @@
 
   <%= f.submit %>
 <% end %>
-
 <% if @project.errors.any? %>
-  <% @project.errors.full_messages.each do |error| %>
-    <h5><%= error %></h5>
-  <% end %>
+
+<h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+<ul>
+  <% @project.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
 <% end %>

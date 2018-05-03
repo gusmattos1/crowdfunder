@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  # before_action :require_login, only: [:new, :create]
+  before_action :ensure_logged_in, only: [:new, :create]
 
   def index
     @projects = Project.all
@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
     @project.start_date = params[:project][:start_date]
     @project.end_date = params[:project][:end_date]
     @project.image = params[:project][:image]
+    @project.user = current_user
 
     if @project.save
       redirect_to projects_url
