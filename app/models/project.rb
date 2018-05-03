@@ -12,9 +12,9 @@ class Project < ActiveRecord::Base
 
 
   def project_start_date_in_future
-    t = Date.today
-    #user_date = t.strftime
-    if start_date <= t
+    if start_date == nil
+      errors.add(:start_date, "Project start date must be SOMETHING ")
+    elsif start_date <= Date.today
       errors.add(:start_date, "Project start date must be in the future")
     end
   end
