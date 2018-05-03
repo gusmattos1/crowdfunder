@@ -13,3 +13,13 @@
 
   <%= f.submit %>
 <% end %>
+<% if @reward.errors.any? %>
+
+<h2><%= pluralize(@reward.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+<ul>
+  <% @reward.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>

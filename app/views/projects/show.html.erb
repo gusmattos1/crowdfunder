@@ -1,7 +1,11 @@
 <h1><%= @project.title %></h1>
 
+
 <% if @project.image.present? %>
+<div class="image-show">
   <%= image_tag @project.image %>
+</div>
+
 <% end %>
 
 <p><%= @project.description %></p>

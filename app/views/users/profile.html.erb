@@ -1,0 +1,29 @@
+<h2>My profile</h2>
+
+
+<h3>My projects</h3>
+
+<% @my_projects.each do |project| %>
+<article class="project">
+  <%= link_to project, class: 'project-link' do %>
+    <figure class="project-image">
+      <% if project.image %>
+      <div class="image-index">
+        <%= image_tag project.image %>
+      </div>
+      <% else %>
+          <div class="image-index">
+        <%= image_tag ActionController::Base.helpers.asset_path("default.jpg") %>
+      </div>
+
+      <% end %>
+    </figure>
+    <h1 class="project-title"><%= project.title %></h1>
+    <time class="project-days-left">
+      <%= icon('clock-o') %>
+      <%= "#{time_ago_in_words(project.end_date)} #{( project.end_date > Time.now.utc ) ? 'remaining' : 'past deadline'}" %></time>
+
+      
+  <% end %>
+</article>
+<% end %>
