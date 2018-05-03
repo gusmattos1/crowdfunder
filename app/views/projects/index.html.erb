@@ -1,4 +1,12 @@
 <%= link_to "New Project", new_project_path %>
+<br>
+<%= link_to "All Projects", projects_path %>
+
+<%= form_tag(projects_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Projects" %>
+<%= submit_tag "Search" %>
+<% end %>
+
 
 <% @projects.each do |project| %>
   <article class="project">

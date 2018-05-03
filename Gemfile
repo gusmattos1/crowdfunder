@@ -33,6 +33,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+ gem 'factory_girl_rails'
+
 group :test do
   gem 'minitest-rails'
   gem 'minitest-reporters'

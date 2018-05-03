@@ -32,7 +32,9 @@ class Project < ActiveRecord::Base
     end
   end
 
-
+  def self.search(search)
+    where("title ILIKE ? or description ILIKE ?", "%#{search}%", "%#{search}%")
+  end
 
 
 end
