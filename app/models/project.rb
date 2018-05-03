@@ -5,10 +5,10 @@ class Project < ActiveRecord::Base
   belongs_to :user # project owner
 
 
-  validates :user,:title, :description, :goal, :start_date, :end_date, presence: true
-  validate :project_start_date_in_future
-  validate :project_start_date_must_be_greater_than_end_date
-  validate :project_goal_must_be_a_positive_number
+  # validates :user,:title, :description, :goal, :start_date, :end_date, presence: true
+  # validate :project_start_date_in_future
+  # validate :project_start_date_must_be_greater_than_end_date
+  # validate :project_goal_must_be_a_positive_number
 
 
   def project_start_date_in_future
