@@ -18,6 +18,7 @@ class RewardTest < ActiveSupport::TestCase
     project = build(:project)
     project.save
     reward = build(:reward,
+      dollar_amount: nil,
       description: 'A heartfelt thanks!',
       project: project
     )
@@ -26,11 +27,12 @@ class RewardTest < ActiveSupport::TestCase
   end
 
   test 'A reward cannot be created without a description' do
-    project = build(:project)
-    project.save
+    project = create(:project)
+
     reward = build(:reward,
       dollar_amount: 99.00,
-      project: project
+      project: project,
+      description: nil
     )
     assert reward.invalid?, 'Reward should be invalid without a description'
     assert reward.new_record?, 'Reward should not save without a description'

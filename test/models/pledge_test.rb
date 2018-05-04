@@ -3,8 +3,7 @@ require_relative '../test_helper'
 class PledgeTest < ActiveSupport::TestCase
 
   test 'A pledge can be created' do
-    pledge = Pledge.create(
-      dollar_amount: 99.00,
+    pledge = build(:pledge,
       project: new_project,
       user: new_user
     )
@@ -19,7 +18,7 @@ class PledgeTest < ActiveSupport::TestCase
     project = new_project
     project.user = owner
     project.save
-    pledge = Pledge.new(dollar_amount: 3.00, project: project)
+    pledge = build(:pledge, project: project)
     pledge.user = owner
     pledge.save
     assert pledge.invalid?, 'Owner should not be able to pledge towards own project'

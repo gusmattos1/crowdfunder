@@ -1,12 +1,10 @@
- require 'test_helper'
+  require 'test_helper'
 
 class ProjectTest < ActiveSupport::TestCase
 
   test 'valid project can be created' do
-    owner = new_user
-    owner.save
-    project = new_project
-    project.user = owner
+
+    project = build(:project)
     project.save
     assert project.valid?
     assert project.persisted?
