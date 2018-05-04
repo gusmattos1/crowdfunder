@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "projects#index"
-
+get '/profile' => 'users#profile'
   get 'login' => 'user_sessions#new', :as => :login
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 

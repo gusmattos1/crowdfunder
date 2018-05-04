@@ -19,6 +19,8 @@ class UserTest < ActiveSupport::TestCase
 
   test "password must be at least 8 characters long" do
     user = build(:user, email: "bettymaker@gmail.com", password: "1234", password_confirmation: "1234")
+
+
     refute user.valid?
   end
 end

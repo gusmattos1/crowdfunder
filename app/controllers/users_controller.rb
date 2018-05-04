@@ -17,4 +17,9 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
+  def profile
+    @my_projects = current_user.projects
+    @proj = current_user.projects_backed
+  end
 end

@@ -12,6 +12,12 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @back_users = []
+    @project.users.each do |user|
+      unless @back_users.include?(user)
+        @back_users.push user
+      end
+    end
   end
 
   def new
