@@ -36,5 +36,8 @@ class Project < ActiveRecord::Base
     where("title ILIKE ? or description ILIKE ?", "%#{search}%", "%#{search}%")
   end
 
+  def backed
+    self.pledges.all.sum(:dollar_amount)
+  end
 
 end
