@@ -1,5 +1,13 @@
 <h1><%= @project.title %></h1>
+  <% if current_user %>
+  <% if current_user.id == @project.user_id %>
+    <p>Users that backed</p>
+    <% @back_users.each do |user| %>
 
+    <%= user.first_name %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <% if @project.image.present? %>
 <div class="image-show">
